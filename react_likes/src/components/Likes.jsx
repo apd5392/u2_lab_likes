@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import LikeTotal from "./LikeTotal";
 
 function Likes(props) {
   const [totalLikes, setTotalLikes] = useState(0);
@@ -9,9 +10,14 @@ function Likes(props) {
     if (totalLikes) setTotalLikes(totalLikes - 1);
   }
   return (
-    <div>
-      <button className="add" onClick={addLikes}>+</button>
-      <button className="subtract" onClick={subtractLikes}>-</button>
+    <div className="container">
+      <div className="display">
+        <LikeTotal totalLikes={totalLikes} />
+      </div>
+      <div className="buttons">
+        <button className="add" onClick={addLikes}>+</button>
+        <button className="subtract" onClick={subtractLikes}>-</button>
+      </div>
     </div>
   );
 }
